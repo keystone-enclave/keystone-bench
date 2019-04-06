@@ -9,5 +9,5 @@ for RUN_N in $(seq $REPS); do
 
     ./iozone > ${BASE_LOG_FILE}
 
-    ${TEST_RUNNER} iozone ${EYRIE_FULL_SUPPORT} > ${KEYSTONE_LOG_FILE}
+    ${TEST_RUNNER} iozone ${EYRIE_FULL_SUPPORT} 2048 49152 0> ${KEYSTONE_LOG_FILE}
 done

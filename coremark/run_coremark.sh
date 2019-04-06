@@ -9,5 +9,5 @@ for RUN_N in $(seq $REPS); do
 
     ./coremark.exe > ${BASE_LOG_FILE}
 
-    ${TEST_RUNNER} coremark.exe ${EYRIE_FULL_SUPPORT} > ${KEYSTONE_LOG_FILE}
+    ${TEST_RUNNER} coremark.exe ${EYRIE_FULL_SUPPORT} ${DEFAULT_USZ} ${DEFAULT_FSZ} 0 > ${KEYSTONE_LOG_FILE}
 done

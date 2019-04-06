@@ -11,7 +11,9 @@ REPS=10
 LOG_DIR_NAME=logs
 
 # What is the name of the host bin we use?
-TEST_RUNNER_NAME=test-runner.riscv
+TEST_RUNNER_NAME=bench-runner.riscv
+DEFAULT_USZ=4096
+DEFAULT_FSZ=16384
 
 # Various eyrie configs
 EYRIE_FULL_SUPPORT_NAME=eyrie-rt
