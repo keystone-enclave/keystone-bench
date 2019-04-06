@@ -1,8 +1,8 @@
 # Test directory names
-TEST_FRAMEWORKS="coremark beebs"
+TEST_FRAMEWORKS="beebs coremark iozone"
 
 # Where to stage our binaries/scripts
-STAGING_OUTPUT_DIR=$(pwd)/test_staging
+STAGING_OUTPUT_DIR=$(pwd)/staging
 
 # Number of runs of each thing
 REPS=10
@@ -11,7 +11,7 @@ REPS=10
 LOG_DIR_NAME=logs
 
 # What is the name of the host bin we use?
-TEST_RUNNER_NAME=test_runner.riscv
+TEST_RUNNER_NAME=test-runner.riscv
 
 # Various eyrie configs
 EYRIE_FULL_SUPPORT_NAME=eyrie-rt

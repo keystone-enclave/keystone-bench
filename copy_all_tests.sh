@@ -2,7 +2,7 @@
 
 set -e
 
-KEYSTONE_BINS=${KEYSTONE_DIR}/sdk/bin/
+KEYSTONE_BINS_DIR=${KEYSTONE_DIR}/sdk/bin/
 
 source test_config.sh
 
@@ -21,4 +21,9 @@ done
 cp run_all_tests.sh ${STAGING_OUTPUT_DIR}
 
 cp test_config.sh ${STAGING_OUTPUT_DIR}
-cp ${KEYSTONE_BINS}/${EYRIE_FULL_SUPPORT_NAME} ${STAGING_OUTPUT_DIR}
+
+KEYSTONE_BINS=" ${EYRIE_FULL_SUPPORT_NAME} ${TEST_RUNNER_NAME}"
+
+for bin in $KEYSTONE_BINS; do
+    cp ${KEYSTONE_BINS_DIR}/${bin} ${STAGING_OUTPUT_DIR}
+done
