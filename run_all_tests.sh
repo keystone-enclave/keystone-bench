@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -e
-
 source test_config.sh
 
 LOG_DIR=$(pwd)/${LOG_DIR_NAME}
