@@ -11,6 +11,6 @@ for tst in bin/*; do
 
         ./bin/${tst} > ${BASE_LOG_FILE}
 
-        ${TEST_RUNNER} ./bin/${tst} ${EYRIE_FULL_SUPPORT} ${DEFAULT_USZ} ${DEFAULT_FSZ} 1> ${KEYSTONE_LOG_FILE}
+        ${TEST_RUNNER} ./bin/${tst} ${EYRIE_FULL_SUPPORT} ${DEFAULT_USZ} ${DEFAULT_FSZ} 1 > ${KEYSTONE_LOG_FILE}
     done
 done
