@@ -5,7 +5,7 @@ TEST_FRAMEWORKS="beebs coremark iozone"
 STAGING_OUTPUT_DIR=$(pwd)/staging
 
 # Number of runs of each thing
-REPS=2
+REPS=10
 
 # Where to store logs
 LOG_DIR_NAME=logs

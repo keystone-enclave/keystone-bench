@@ -13,6 +13,6 @@ for tst in bin/*; do
 
         ./bin/${tst} > ${BASE_LOG_FILE} 2> ${BASE_LOG_FILE}.err
 
-        ${TEST_RUNNER} ./bin/${tst} ${EYRIE_FULL_SUPPORT} ${DEFAULT_USZ} ${DEFAULT_FSZ} 1 0 > ${KEYSTONE_LOG_FILE} 2> ${KEYSTONE_LOG_FILE}.err
+        ${TEST_RUNNER} ./bin/${tst} ${EYRIE_FULL_SUPPORT} ${DEFAULT_USZ} ${DEFAULT_FSZ} 0 0 > ${KEYSTONE_LOG_FILE} 2> ${KEYSTONE_LOG_FILE}.err
     done
 done

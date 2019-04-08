@@ -14,6 +14,14 @@ export DEFAULT_FSZ
 
 mkdir $LOG_DIR
 
+echo "Eyrie: " > ${LOG_DIR}/CONFIG
+md5sum ${EYRIE_FULL_SUPPORT} >> ${LOG_DIR}/CONFIG
+
+echo "" >> ${LOG_DIR}/CONFIG
+
+echo "Test runner: " >> ${LOG_DIR}/CONFIG
+md5sum ${TEST_RUNNER} >> ${LOG_DIR}/CONFIG
+
 for testf in $TEST_FRAMEWORKS; do
     cd $testf
     export TEST_LOG_DIR=${LOG_DIR}/$testf
