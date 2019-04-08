@@ -1,0 +1,9 @@
+[submodule "beebs"]
+	path = beebs
+	url = git@github.com:dkohlbre/beebs.git
+[submodule "coremark"]
+	path = coremark
+	url = git@github.com:dkohlbre/coremark.git
+[submodule "iozone"]
+	path = iozone
+	url = git@github.com:dkohlbre/keystone-iozone.git
