@@ -1,0 +1,4 @@
+*~
+*.riscv
+*.o
+staging/
