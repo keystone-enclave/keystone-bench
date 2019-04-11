@@ -36,6 +36,8 @@ int main(int argc, char** argv)
   printf("[keystone-bench] Params:\n\tuntrusted: %lu\n\tfreemem: %lu\n\t%s\n\t%s\n*********\n",untrusted_size,freemem_size,
          self_timing?"Performing internal timing":"No timing",
          load_only?"ONLY LOADING, not running":"Running benchmark");
+
+
   unsigned long cycles1,cycles2;
   if( self_timing ){
     asm volatile ("rdcycle %0" : "=r" (cycles1));
@@ -46,7 +48,7 @@ int main(int argc, char** argv)
 
   if( self_timing ){
     asm volatile ("rdcycle %0" : "=r" (cycles2));
-    printf("Runtime: %ul cycles\r\n", cycles2-cycles1);
+    printf("[keystone-bench] Runtime: %ul cycles\r\n", cycles2-cycles1);
   }
 
   return 0;
