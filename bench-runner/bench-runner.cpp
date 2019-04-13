@@ -48,7 +48,7 @@ int main(int argc, char** argv)
 
   if( self_timing ){
     asm volatile ("rdcycle %0" : "=r" (cycles2));
-    printf("[keystone-bench] Runtime: %ul cycles\r\n", cycles2-cycles1);
+    printf("[keystone-bench] Runtime: %lu cycles\r\n", cycles2-cycles1);
   }
 
   return 0;

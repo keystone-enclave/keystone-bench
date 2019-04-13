@@ -11,6 +11,8 @@ export TEST_RUNNER
 export EYRIE_FULL_SUPPORT
 export DEFAULT_USZ
 export DEFAULT_FSZ
+export LARGE_FSZ
+export XLARGE_FSZ
 
 mkdir $LOG_DIR
 

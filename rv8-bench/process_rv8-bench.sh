@@ -11,8 +11,8 @@ for tst in riscv64/*; do
         BASE_LOG_FILE=${TEST_LOG_DIR}/base_${tst}_${RUN_N}.log
         KEYSTONE_LOG_FILE=${TEST_LOG_DIR}/keystone_${tst}_${RUN_N}.log
 
-        cat ${BASE_LOG_FILE} | grep "Runtime:" | cut -d' ' -f '2' >> ${TEST_LOG_FILE}
-        cat ${KEYSTONE_LOG_FILE} | grep "Runtime:" | cut -d' ' -f '2' >> ${KTEST_LOG_FILE}
+        cat ${BASE_LOG_FILE} | grep "real" | cut -d' ' -f '2' >> ${TEST_LOG_FILE}
+        cat ${KEYSTONE_LOG_FILE} | grep "Runtime:" | cut -d' ' -f '3' >> ${KTEST_LOG_FILE}
 
     done;
 

@@ -1,5 +1,6 @@
 # Test directory names
-TEST_FRAMEWORKS="rv8-bench torch beebs coremark iozone"
+TEST_FRAMEWORKS="rv8-bench"
+#"rv8-bench torch beebs coremark iozone"
 
 # Where to stage our binaries/scripts
 STAGING_OUTPUT_DIR=$(pwd)/staging
@@ -8,7 +9,7 @@ STAGING_OUTPUT_DIR=$(pwd)/staging
 REPS=10
 
 # Where to store logs
-LOG_DIR_NAME=logs
+LOG_DIR_NAME=biglogs
 
 # What is the name of the host bin we use?
 TEST_RUNNER_NAME=bench-runner.riscv
