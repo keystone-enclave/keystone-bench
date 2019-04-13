@@ -1,6 +1,8 @@
 #!/bin/bash
 
-for tst in ${TORCH_TEST}; do
+source torch_config.sh
+
+for tst in ${TORCH_TESTS}; do
     tst=$(basename $tst)
     TEST_LOG_FILE=${TEST_LOG_DIR}/BASE_${tst}.log
     KTEST_LOG_FILE=${TEST_LOG_DIR}/KEYSTONE_${tst}.log
@@ -11,7 +13,7 @@ for tst in ${TORCH_TEST}; do
         BASE_LOG_FILE=${TEST_LOG_DIR}/base_${tst}_${RUN_N}.log
         KEYSTONE_LOG_FILE=${TEST_LOG_DIR}/keystone_${tst}_${RUN_N}.log
 
-        cat ${BASE_LOG_FILE} | grep "Runtime:" | cut -d' ' -f '2' >> ${TEST_LOG_FILE}
+        cat ${BASE_LOG_FILE} | grep "real" | cut -d' ' -f '2' >> ${TEST_LOG_FILE}
         cat ${KEYSTONE_LOG_FILE} | grep "Runtime:" | cut -d' ' -f '3' >> ${KTEST_LOG_FILE}
 
     done;
