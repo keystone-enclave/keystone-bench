@@ -22,11 +22,19 @@ int main(int argc, char** argv)
 
   Keystone enclave;
   Params params;
+  unsigned long cycles1,cycles2,cycles3,cycles4;
 
   params.setFreeMemSize(freemem_size);
   params.setUntrustedMem(DEFAULT_UNTRUSTED_PTR, untrusted_size);
 
+
+  if( self_timing ){
+    asm volatile ("rdcycle %0" : "=r" (cycles1));
+  }
   enclave.init(argv[1], argv[2], params);
+  if( self_timing ){
+    asm volatile ("rdcycle %0" : "=r" (cycles2));
+  }
 
   enclave.registerOcallDispatch(incoming_call_dispatch);
   edge_call_init_internals((uintptr_t)enclave.getSharedBuffer(),
@@ -38,17 +46,17 @@ int main(int argc, char** argv)
          load_only?"ONLY LOADING, not running":"Running benchmark");
 
 
-  unsigned long cycles1,cycles2;
   if( self_timing ){
-    asm volatile ("rdcycle %0" : "=r" (cycles1));
+    asm volatile ("rdcycle %0" : "=r" (cycles3));
   }
 
   if( !load_only )
     enclave.run();
 
   if( self_timing ){
-    asm volatile ("rdcycle %0" : "=r" (cycles2));
-    printf("[keystone-bench] Runtime: %lu cycles\r\n", cycles2-cycles1);
+    asm volatile ("rdcycle %0" : "=r" (cycles4));
+    printf("[keystone-bench] Init: %lu cycles\r\n", cycles2-cycles1);
+    printf("[keystone-bench] Runtime: %lu cycles\r\n", cycles4-cycles3);
   }
 
   return 0;
