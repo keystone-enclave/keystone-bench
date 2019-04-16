@@ -7,3 +7,6 @@
 [submodule "iozone"]
 	path = iozone
 	url = git@github.com:dkohlbre/keystone-iozone.git
+[submodule "rv8-bench"]
+	path = rv8-bench
+	url = git@github.com:dkohlbre/rv8-bench.git

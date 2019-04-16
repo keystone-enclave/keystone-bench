@@ -6,6 +6,8 @@ KEYSTONE_BINS_DIR=${KEYSTONE_DIR}/sdk/bin/
 
 source test_config.sh
 
+export TEST_CONFIG=$(pwd)/test_config.sh
+
 mkdir ${STAGING_OUTPUT_DIR}
 
 for testf in $TEST_FRAMEWORKS; do
