@@ -9,9 +9,9 @@
 
 int main(int argc, char** argv)
 {
-  if(argc != 7)
+  if(argc < 7 || argc > 8)
   {
-    printf("Usage: %s <eapp> <runtime> <untrusted_size(K)> <freemem_size(K)> <self_timing> <load_only>\n", argv[0]);
+    printf("Usage: %s <eapp> <runtime> <untrusted_size(K)> <freemem_size(K)> <self_timing> <load_only> [Untrusted ptr (hex)]\n", argv[0]);
     return 0;
   }
 
@@ -19,13 +19,17 @@ int main(int argc, char** argv)
   size_t freemem_size = atoi(argv[4])*1024;
   int self_timing = atoi(argv[5]);
   int load_only = atoi(argv[6]);
+  uintptr_t utm_ptr = (uintptr_t)DEFAULT_UNTRUSTED_PTR;
+  if(argc == 8)
+    utm_ptr = strtoll(argv[7], NULL, 16);
+
 
   Keystone enclave;
   Params params;
   unsigned long cycles1,cycles2,cycles3,cycles4;
 
   params.setFreeMemSize(freemem_size);
-  params.setUntrustedMem(DEFAULT_UNTRUSTED_PTR, untrusted_size);
+  params.setUntrustedMem(utm_ptr, untrusted_size);
 
 
   if( self_timing ){
