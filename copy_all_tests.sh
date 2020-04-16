@@ -2,7 +2,7 @@
 
 set -e
 
-KEYSTONE_BINS_DIR=${KEYSTONE_DIR}/sdk/bin/
+KEYSTONE_BINS_DIR=${KEYSTONE_DIR}/sdk/rts/eyrie/
 
 source test_config.sh
 
