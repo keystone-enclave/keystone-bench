@@ -1,11 +1,10 @@
 # Test directory names
-TEST_FRAMEWORKS="sel4"
-#rv8-bench"
-#torch beebs coremark iozone"
+TEST_FRAMEWORKS="rv8-bench coremark"
+#torch beebs iozone"
 
 # Which things to run
 RUN_KEYSTONE=1
-RUN_BASELINE=0
+RUN_BASELINE=1
 
 # Where to stage our binaries/scripts
 STAGING_OUTPUT_DIR=$(pwd)/staging
