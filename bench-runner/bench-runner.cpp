@@ -8,6 +8,13 @@
 #include "edge_call.h"
 #include <getopt.h>
 
+/* This is for asking the loader to use the FU540 physical address
+range belonging to the scratchpad, rather than what the kernel
+provides. This will only work with the appropriate SM plugins enabled
+and working! (FU540 platform module set to use the scratchpad, SM
+multimem plugin)
+*/
+#define SCRATCHPAD_PHYS 0
 
 int main(int argc, char** argv)
 {
@@ -77,7 +84,11 @@ int main(int argc, char** argv)
   if( self_timing ){
     asm volatile ("rdcycle %0" : "=r" (cycles1));
   }
-  enclave.init(eapp_file, rt_file , params);
+  if(SCRATCHPAD_PHYS)
+    enclave.init(eapp_file, rt_file , params, 0x0A000000);
+  else
+    enclave.init(eapp_file, rt_file , params);
+
   if( self_timing ){
     asm volatile ("rdcycle %0" : "=r" (cycles2));
   }
@@ -87,9 +98,10 @@ int main(int argc, char** argv)
 			   enclave.getSharedBufferSize());
 
 
-  printf("[keystone-bench] Params:\n\tuntrusted: %lu\n\tfreemem: %lu\n\t%s\n\t%s\n*********\n",untrusted_size,freemem_size,
+  printf("[keystone-bench] Params:\n\tuntrusted: %lu\n\tfreemem: %lu\n\t%s\n\t%s\n\t%s\n*********\n",untrusted_size,freemem_size,
          self_timing?"Performing internal timing":"No timing",
-         load_only?"ONLY LOADING, not running":"Running benchmark");
+         load_only?"ONLY LOADING, not running":"Running benchmark",
+         SCRATCHPAD_PHYS?"Loading to SCRATCHPAD":"");
 
 
   if( self_timing ){
