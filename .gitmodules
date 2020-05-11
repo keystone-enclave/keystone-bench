@@ -1,12 +1,12 @@
 [submodule "beebs"]
 	path = beebs
-	url = git@github.com:dkohlbre/beebs.git
+	url = git@github.com:keystone-enclave/beebs.git
 [submodule "coremark"]
 	path = coremark
-	url = git@github.com:dkohlbre/coremark.git
+	url = git@github.com:keystone-enclave/coremark.git
 [submodule "iozone"]
 	path = iozone
-	url = git@github.com:dkohlbre/keystone-iozone.git
+	url = git@github.com:keystone-enclave/keystone-iozone.git
 [submodule "rv8-bench"]
 	path = rv8-bench
-	url = git@github.com:dkohlbre/rv8-bench.git
+	url = git@github.com:keystone-enclave/rv8-bench.git
